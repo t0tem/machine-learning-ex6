@@ -97,14 +97,14 @@ while ~isempty(email_contents)
     %       str2). It will return 1 only if the two strings are equivalent.
     %
 
+    look_up = strcmp(str, vocabList); %comparing str with the whole vocab at once
+    % normally the result is all zeros except one, or all zeros, so:
+    
+    [in_dict, ind] = max(look_up, [], 1); % checks where is the max value (1)
 
-
-
-
-
-
-
-
+    if in_dict
+       word_indices = [word_indices ; ind];
+    end
 
     % =============================================================
 
